@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out both;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-text-fade {
+    animation: textFade 2s ease forwards;
+  }
+  @keyframes textFade {
+    0% { opacity: 0; color: #333; transform: translateY(20px); }
+    100% { opacity: 1; color: #fff; transform: translateY(0); }
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .bg-gradient-animate {
+    background: linear-gradient(-45deg, #0f172a, #1e293b, #0d9488, #7e22ce);
+    background-color: #0f172a;
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  .text-gradient-animate {
+    background: linear-gradient(-45deg, #a855f7, #6366f1, #ec4899, #3b82f6);
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShift 6s ease infinite;
+  }
+
+  @keyframes morph {
+    0%, 100% {
+      border-radius: 45% 55% 60% 40% / 55% 45% 35% 65%;
+    }
+    50% {
+      border-radius: 60% 40% 45% 55% / 50% 60% 40% 50%;
+    }
+  }
+  .morphing {
+    animation: morph 8s ease-in-out infinite;
+  }
+}
